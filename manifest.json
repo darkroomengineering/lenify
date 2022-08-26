@@ -1,0 +1,14 @@
+{
+  "name": "Lenify",
+  "description": "Smooth Scroll for everyone, with a single click",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Applies Lenis to any website"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["tabs", "scripting"],
+  "host_permissions": ["https://*/*", "http://*/*"]
+}
