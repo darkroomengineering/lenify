@@ -127,10 +127,7 @@
             return (function () {
               function e(e) {
                 var t = this;
-                Object.defineProperty(this, l, {
-                  writable: !0,
-                  value: void 0,
-                }),
+                Object.defineProperty(this, l, { writable: !0, value: void 0 }),
                   Object.defineProperty(this, h, {
                     writable: !0,
                     value: void 0,
@@ -240,9 +237,7 @@
                   (o(this, u)[u] = { x: null, y: null }),
                   (o(this, d)[d] = null),
                   void 0 !== o(this, l)[l].passive &&
-                    (this.listenerOptions = {
-                      passive: o(this, l)[l].passive,
-                    });
+                    (this.listenerOptions = { passive: o(this, l)[l].passive });
               }
               var t = e.prototype;
               return (
@@ -576,7 +571,7 @@
     })(o);
   });
 
-  const _lenis = new Lenis({
+  const lenis = new Lenis({
     lerp: 0.1,
     smooth: true,
     direction: "vertical",
@@ -584,7 +579,7 @@
 
   if (!smooth) {
     function raf() {
-      _lenis.raf();
+      lenis.raf();
       requestAnimationFrame(raf);
     }
 
@@ -592,6 +587,6 @@
     smooth = true;
   } else {
     smooth = false;
-    _lenis.destroy();
+    lenis.destroy();
   }
 })();
