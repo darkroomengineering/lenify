@@ -1,5 +1,7 @@
 // this code will be executed when the extension's button is clicked
 (function () {
+  let smooth = false;
+
   !(function (e, t) {
     "object" == typeof exports && "undefined" != typeof module
       ? (module.exports = t())
@@ -580,10 +582,16 @@
     direction: "vertical",
   });
 
-  function raf() {
-    _lenis.raf();
-    requestAnimationFrame(raf);
-  }
+  if (!smooth) {
+    function raf() {
+      _lenis.raf();
+      requestAnimationFrame(raf);
+    }
 
-  requestAnimationFrame(raf);
+    requestAnimationFrame(raf);
+    smooth = true;
+  } else {
+    smooth = false;
+    _lenis.destroy();
+  }
 })();
