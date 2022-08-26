@@ -1,7 +1,6 @@
 // this code will be executed when the extension's button is clicked
-(function () {
-  let smooth = false;
 
+(function () {
   !(function (e, t) {
     "object" == typeof exports && "undefined" != typeof module
       ? (module.exports = t())
@@ -577,16 +576,19 @@
     direction: "vertical",
   });
 
-  if (!smooth) {
-    function raf() {
-      lenis.raf();
-      requestAnimationFrame(raf);
-    }
+  chrome.storage.local.get(["smooth"], function (result) {
+    if (result.smooth) {
+      chrome.storage.local.set({ smooth: false });
+      location.reload();
+    } else {
+      function raf() {
+        lenis.raf();
+        requestAnimationFrame(raf);
+      }
 
-    requestAnimationFrame(raf);
-    smooth = true;
-  } else {
-    smooth = false;
-    lenis.destroy();
-  }
+      requestAnimationFrame(raf);
+      chrome.storage.local.set({ smooth: true });
+      console.log("Smooth scrolling enabled", true);
+    }
+  });
 })();
