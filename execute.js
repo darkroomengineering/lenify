@@ -9,80 +9,80 @@
       : ((t || self).Lenis = e());
   })(this, function () {
     function t(t, e) {
-      for (var i = 0; i < e.length; i++) {
-        var o = e[i];
-        (o.enumerable = o.enumerable || !1),
-          (o.configurable = !0),
-          "value" in o && (o.writable = !0),
-          Object.defineProperty(t, o.key, o);
+      for (var o = 0; o < e.length; o++) {
+        var i = e[o];
+        (i.enumerable = i.enumerable || !1),
+          (i.configurable = !0),
+          "value" in i && (i.writable = !0),
+          Object.defineProperty(t, i.key, i);
       }
     }
-    function e(e, i, o) {
+    function e(e, o, i) {
       return (
-        i && t(e.prototype, i),
-        o && t(e, o),
+        o && t(e.prototype, o),
+        i && t(e, i),
         Object.defineProperty(e, "prototype", { writable: !1 }),
         e
       );
     }
-    function i() {
+    function o() {
       return (
-        (i = Object.assign
+        (o = Object.assign
           ? Object.assign.bind()
           : function (t) {
               for (var e = 1; e < arguments.length; e++) {
-                var i = arguments[e];
-                for (var o in i)
-                  Object.prototype.hasOwnProperty.call(i, o) && (t[o] = i[o]);
+                var o = arguments[e];
+                for (var i in o)
+                  Object.prototype.hasOwnProperty.call(o, i) && (t[i] = o[i]);
               }
               return t;
             }),
-        i.apply(this, arguments)
+        o.apply(this, arguments)
       );
     }
-    function o(t, e) {
+    function i(t, e) {
       return (
-        (o = Object.setPrototypeOf
+        (i = Object.setPrototypeOf
           ? Object.setPrototypeOf.bind()
           : function (t, e) {
               return (t.__proto__ = e), t;
             }),
-        o(t, e)
+        i(t, e)
       );
     }
     function n() {}
     n.prototype = {
-      on: function (t, e, i) {
-        var o = this.e || (this.e = {});
-        return (o[t] || (o[t] = [])).push({ fn: e, ctx: i }), this;
+      on: function (t, e, o) {
+        var i = this.e || (this.e = {});
+        return (i[t] || (i[t] = [])).push({ fn: e, ctx: o }), this;
       },
-      once: function (t, e, i) {
-        var o = this;
+      once: function (t, e, o) {
+        var i = this;
         function n() {
-          o.off(t, n), e.apply(i, arguments);
+          i.off(t, n), e.apply(o, arguments);
         }
-        return (n._ = e), this.on(t, n, i);
+        return (n._ = e), this.on(t, n, o);
       },
       emit: function (t) {
         for (
           var e = [].slice.call(arguments, 1),
-            i = ((this.e || (this.e = {}))[t] || []).slice(),
-            o = 0,
-            n = i.length;
-          o < n;
-          o++
+            o = ((this.e || (this.e = {}))[t] || []).slice(),
+            i = 0,
+            n = o.length;
+          i < n;
+          i++
         )
-          i[o].fn.apply(i[o].ctx, e);
+          o[i].fn.apply(o[i].ctx, e);
         return this;
       },
       off: function (t, e) {
-        var i = this.e || (this.e = {}),
-          o = i[t],
+        var o = this.e || (this.e = {}),
+          i = o[t],
           n = [];
-        if (o && e)
-          for (var r = 0, s = o.length; r < s; r++)
-            o[r].fn !== e && o[r].fn._ !== e && n.push(o[r]);
-        return n.length ? (i[t] = n) : delete i[t], this;
+        if (i && e)
+          for (var r = 0, s = i.length; r < s; r++)
+            i[r].fn !== e && i[r].fn._ !== e && n.push(i[r]);
+        return n.length ? (o[t] = n) : delete o[t], this;
       },
     };
     var r = n;
@@ -103,55 +103,55 @@
               function e(e) {
                 return "__private_" + t++ + "_" + e;
               }
-              function i(t, e) {
+              function o(t, e) {
                 if (!Object.prototype.hasOwnProperty.call(t, e))
                   throw new TypeError(
                     "attempted to use private field on non-instance"
                   );
                 return t;
               }
-              function o() {}
-              o.prototype = {
-                on: function (t, e, i) {
-                  var o = this.e || (this.e = {});
-                  return (o[t] || (o[t] = [])).push({ fn: e, ctx: i }), this;
+              function i() {}
+              i.prototype = {
+                on: function (t, e, o) {
+                  var i = this.e || (this.e = {});
+                  return (i[t] || (i[t] = [])).push({ fn: e, ctx: o }), this;
                 },
-                once: function (t, e, i) {
-                  var o = this;
+                once: function (t, e, o) {
+                  var i = this;
                   function n() {
-                    o.off(t, n), e.apply(i, arguments);
+                    i.off(t, n), e.apply(o, arguments);
                   }
-                  return (n._ = e), this.on(t, n, i);
+                  return (n._ = e), this.on(t, n, o);
                 },
                 emit: function (t) {
                   for (
                     var e = [].slice.call(arguments, 1),
-                      i = ((this.e || (this.e = {}))[t] || []).slice(),
-                      o = 0,
-                      n = i.length;
-                    o < n;
-                    o++
+                      o = ((this.e || (this.e = {}))[t] || []).slice(),
+                      i = 0,
+                      n = o.length;
+                    i < n;
+                    i++
                   )
-                    i[o].fn.apply(i[o].ctx, e);
+                    o[i].fn.apply(o[i].ctx, e);
                   return this;
                 },
                 off: function (t, e) {
-                  var i = this.e || (this.e = {}),
-                    o = i[t],
+                  var o = this.e || (this.e = {}),
+                    i = o[t],
                     n = [];
-                  if (o && e)
-                    for (var r = 0, s = o.length; r < s; r++)
-                      o[r].fn !== e && o[r].fn._ !== e && n.push(o[r]);
-                  return n.length ? (i[t] = n) : delete i[t], this;
+                  if (i && e)
+                    for (var r = 0, s = i.length; r < s; r++)
+                      i[r].fn !== e && i[r].fn._ !== e && n.push(i[r]);
+                  return n.length ? (o[t] = n) : delete o[t], this;
                 },
               };
-              var n = o;
-              n.TinyEmitter = o;
+              var n = i;
+              n.TinyEmitter = i;
               var r,
                 s = "virtualscroll",
                 l = e("options"),
-                a = e("el"),
-                h = e("emitter"),
+                h = e("el"),
+                a = e("emitter"),
                 c = e("event"),
                 u = e("touchStart"),
                 d = e("bodyTouchAction");
@@ -162,11 +162,11 @@
                     writable: !0,
                     value: void 0,
                   }),
-                    Object.defineProperty(this, a, {
+                    Object.defineProperty(this, h, {
                       writable: !0,
                       value: void 0,
                     }),
-                    Object.defineProperty(this, h, {
+                    Object.defineProperty(this, a, {
                       writable: !0,
                       value: void 0,
                     }),
@@ -183,67 +183,67 @@
                       value: void 0,
                     }),
                     (this._onWheel = function (t) {
-                      var o = i(e, l)[l],
-                        n = i(e, c)[c];
+                      var i = o(e, l)[l],
+                        n = o(e, c)[c];
                       (n.deltaX = t.wheelDeltaX || -1 * t.deltaX),
                         (n.deltaY = t.wheelDeltaY || -1 * t.deltaY),
                         r.isFirefox &&
                           1 === t.deltaMode &&
-                          ((n.deltaX *= o.firefoxMultiplier),
-                          (n.deltaY *= o.firefoxMultiplier)),
-                        (n.deltaX *= o.mouseMultiplier),
-                        (n.deltaY *= o.mouseMultiplier),
+                          ((n.deltaX *= i.firefoxMultiplier),
+                          (n.deltaY *= i.firefoxMultiplier)),
+                        (n.deltaX *= i.mouseMultiplier),
+                        (n.deltaY *= i.mouseMultiplier),
                         e._notify(t);
                     }),
                     (this._onMouseWheel = function (t) {
-                      var o = i(e, c)[c];
-                      (o.deltaX = t.wheelDeltaX ? t.wheelDeltaX : 0),
-                        (o.deltaY = t.wheelDeltaY
+                      var i = o(e, c)[c];
+                      (i.deltaX = t.wheelDeltaX ? t.wheelDeltaX : 0),
+                        (i.deltaY = t.wheelDeltaY
                           ? t.wheelDeltaY
                           : t.wheelDelta),
                         e._notify(t);
                     }),
                     (this._onTouchStart = function (t) {
-                      var o = t.targetTouches ? t.targetTouches[0] : t;
-                      (i(e, u)[u].x = o.pageX), (i(e, u)[u].y = o.pageY);
+                      var i = t.targetTouches ? t.targetTouches[0] : t;
+                      (o(e, u)[u].x = i.pageX), (o(e, u)[u].y = i.pageY);
                     }),
                     (this._onTouchMove = function (t) {
-                      var o = i(e, l)[l];
-                      o.preventTouch &&
-                        !t.target.classList.contains(o.unpreventTouchClass) &&
+                      var i = o(e, l)[l];
+                      i.preventTouch &&
+                        !t.target.classList.contains(i.unpreventTouchClass) &&
                         t.preventDefault();
-                      var n = i(e, c)[c],
+                      var n = o(e, c)[c],
                         r = t.targetTouches ? t.targetTouches[0] : t;
-                      (n.deltaX = (r.pageX - i(e, u)[u].x) * o.touchMultiplier),
+                      (n.deltaX = (r.pageX - o(e, u)[u].x) * i.touchMultiplier),
                         (n.deltaY =
-                          (r.pageY - i(e, u)[u].y) * o.touchMultiplier),
-                        (i(e, u)[u].x = r.pageX),
-                        (i(e, u)[u].y = r.pageY),
+                          (r.pageY - o(e, u)[u].y) * i.touchMultiplier),
+                        (o(e, u)[u].x = r.pageX),
+                        (o(e, u)[u].y = r.pageY),
                         e._notify(t);
                     }),
                     (this._onKeyDown = function (t) {
-                      var o = i(e, c)[c];
-                      o.deltaX = o.deltaY = 0;
+                      var i = o(e, c)[c];
+                      i.deltaX = i.deltaY = 0;
                       var n = window.innerHeight - 40;
                       switch (t.keyCode) {
                         case 37:
                         case 38:
-                          o.deltaY = i(e, l)[l].keyStep;
+                          i.deltaY = o(e, l)[l].keyStep;
                           break;
                         case 39:
                         case 40:
-                          o.deltaY = -i(e, l)[l].keyStep;
+                          i.deltaY = -o(e, l)[l].keyStep;
                           break;
                         case 32:
-                          o.deltaY = n * (t.shiftKey ? 1 : -1);
+                          i.deltaY = n * (t.shiftKey ? 1 : -1);
                           break;
                         default:
                           return;
                       }
                       e._notify(t);
                     }),
-                    (i(this, a)[a] = window),
-                    t && t.el && ((i(this, a)[a] = t.el), delete t.el),
+                    (o(this, h)[h] = window),
+                    t && t.el && ((o(this, h)[h] = t.el), delete t.el),
                     r ||
                       (r = {
                         hasWheelEvent: "onwheel" in document,
@@ -256,7 +256,7 @@
                         hasKeyDown: "onkeydown" in document,
                         isFirefox: navigator.userAgent.indexOf("Firefox") > -1,
                       }),
-                    (i(this, l)[l] = Object.assign(
+                    (o(this, l)[l] = Object.assign(
                       {
                         mouseMultiplier: 1,
                         touchMultiplier: 2,
@@ -269,22 +269,22 @@
                       },
                       t
                     )),
-                    (i(this, h)[h] = new n()),
-                    (i(this, c)[c] = { y: 0, x: 0, deltaX: 0, deltaY: 0 }),
-                    (i(this, u)[u] = { x: null, y: null }),
-                    (i(this, d)[d] = null),
-                    void 0 !== i(this, l)[l].passive &&
+                    (o(this, a)[a] = new n()),
+                    (o(this, c)[c] = { y: 0, x: 0, deltaX: 0, deltaY: 0 }),
+                    (o(this, u)[u] = { x: null, y: null }),
+                    (o(this, d)[d] = null),
+                    void 0 !== o(this, l)[l].passive &&
                       (this.listenerOptions = {
-                        passive: i(this, l)[l].passive,
+                        passive: o(this, l)[l].passive,
                       });
                 }
                 var e = t.prototype;
                 return (
                   (e._notify = function (t) {
-                    var e = i(this, c)[c];
+                    var e = o(this, c)[c];
                     (e.x += e.deltaX),
                       (e.y += e.deltaY),
-                      i(this, h)[h].emit(s, {
+                      o(this, a)[a].emit(s, {
                         x: e.x,
                         y: e.y,
                         deltaX: e.deltaX,
@@ -294,96 +294,96 @@
                   }),
                   (e._bind = function () {
                     r.hasWheelEvent &&
-                      i(this, a)[a].addEventListener(
+                      o(this, h)[h].addEventListener(
                         "wheel",
                         this._onWheel,
                         this.listenerOptions
                       ),
                       r.hasMouseWheelEvent &&
-                        i(this, a)[a].addEventListener(
+                        o(this, h)[h].addEventListener(
                           "mousewheel",
                           this._onMouseWheel,
                           this.listenerOptions
                         ),
                       r.hasTouch &&
-                        i(this, l)[l].useTouch &&
-                        (i(this, a)[a].addEventListener(
+                        o(this, l)[l].useTouch &&
+                        (o(this, h)[h].addEventListener(
                           "touchstart",
                           this._onTouchStart,
                           this.listenerOptions
                         ),
-                        i(this, a)[a].addEventListener(
+                        o(this, h)[h].addEventListener(
                           "touchmove",
                           this._onTouchMove,
                           this.listenerOptions
                         )),
                       r.hasPointer &&
                         r.hasTouchWin &&
-                        ((i(this, d)[d] = document.body.style.msTouchAction),
+                        ((o(this, d)[d] = document.body.style.msTouchAction),
                         (document.body.style.msTouchAction = "none"),
-                        i(this, a)[a].addEventListener(
+                        o(this, h)[h].addEventListener(
                           "MSPointerDown",
                           this._onTouchStart,
                           !0
                         ),
-                        i(this, a)[a].addEventListener(
+                        o(this, h)[h].addEventListener(
                           "MSPointerMove",
                           this._onTouchMove,
                           !0
                         )),
                       r.hasKeyDown &&
-                        i(this, l)[l].useKeyboard &&
+                        o(this, l)[l].useKeyboard &&
                         document.addEventListener("keydown", this._onKeyDown);
                   }),
                   (e._unbind = function () {
                     r.hasWheelEvent &&
-                      i(this, a)[a].removeEventListener("wheel", this._onWheel),
+                      o(this, h)[h].removeEventListener("wheel", this._onWheel),
                       r.hasMouseWheelEvent &&
-                        i(this, a)[a].removeEventListener(
+                        o(this, h)[h].removeEventListener(
                           "mousewheel",
                           this._onMouseWheel
                         ),
                       r.hasTouch &&
-                        (i(this, a)[a].removeEventListener(
+                        (o(this, h)[h].removeEventListener(
                           "touchstart",
                           this._onTouchStart
                         ),
-                        i(this, a)[a].removeEventListener(
+                        o(this, h)[h].removeEventListener(
                           "touchmove",
                           this._onTouchMove
                         )),
                       r.hasPointer &&
                         r.hasTouchWin &&
-                        ((document.body.style.msTouchAction = i(this, d)[d]),
-                        i(this, a)[a].removeEventListener(
+                        ((document.body.style.msTouchAction = o(this, d)[d]),
+                        o(this, h)[h].removeEventListener(
                           "MSPointerDown",
                           this._onTouchStart,
                           !0
                         ),
-                        i(this, a)[a].removeEventListener(
+                        o(this, h)[h].removeEventListener(
                           "MSPointerMove",
                           this._onTouchMove,
                           !0
                         )),
                       r.hasKeyDown &&
-                        i(this, l)[l].useKeyboard &&
+                        o(this, l)[l].useKeyboard &&
                         document.removeEventListener(
                           "keydown",
                           this._onKeyDown
                         );
                   }),
                   (e.on = function (t, e) {
-                    i(this, h)[h].on(s, t, e);
-                    var o = i(this, h)[h].e;
-                    o && o[s] && 1 === o[s].length && this._bind();
+                    o(this, a)[a].on(s, t, e);
+                    var i = o(this, a)[a].e;
+                    i && i[s] && 1 === i[s].length && this._bind();
                   }),
                   (e.off = function (t, e) {
-                    i(this, h)[h].off(s, t, e);
-                    var o = i(this, h)[h].e;
-                    (!o[s] || o[s].length <= 0) && this._unbind();
+                    o(this, a)[a].off(s, t, e);
+                    var i = o(this, a)[a].e;
+                    (!i[s] || i[s].length <= 0) && this._unbind();
                   }),
                   (e.destroy = function () {
-                    i(this, h)[h].off(), this._unbind();
+                    o(this, a)[a].off(), this._unbind();
                   }),
                   t
                 );
@@ -393,22 +393,22 @@
           e.exports
         );
       })(),
-      l = "0.2.2";
-    function a(t, e, i) {
-      return Math.max(t, Math.min(e, i));
+      l = "0.2.7";
+    function h(t, e, o) {
+      return Math.max(t, Math.min(e, o));
     }
-    var h = ["duration", "easing"],
+    var a = ["duration", "easing"],
       c = /*#__PURE__*/ (function () {
         function t() {}
-        var o = t.prototype;
+        var i = t.prototype;
         return (
-          (o.to = function (t, e) {
-            var o = this,
+          (i.to = function (t, e) {
+            var i = this,
               n = void 0 === e ? {} : e,
               r = n.duration,
               s = void 0 === r ? 1 : r,
               l = n.easing,
-              a =
+              h =
                 void 0 === l
                   ? function (t) {
                       return t;
@@ -416,39 +416,39 @@
                   : l,
               c = (function (t, e) {
                 if (null == t) return {};
-                var i,
-                  o,
+                var o,
+                  i,
                   n = {},
                   r = Object.keys(t);
-                for (o = 0; o < r.length; o++)
-                  e.indexOf((i = r[o])) >= 0 || (n[i] = t[i]);
+                for (i = 0; i < r.length; i++)
+                  e.indexOf((o = r[i])) >= 0 || (n[o] = t[o]);
                 return n;
-              })(n, h);
+              })(n, a);
             (this.target = t),
-              (this.fromKeys = i({}, c)),
-              (this.toKeys = i({}, c)),
-              (this.keys = Object.keys(i({}, c))),
+              (this.fromKeys = o({}, c)),
+              (this.toKeys = o({}, c)),
+              (this.keys = Object.keys(o({}, c))),
               this.keys.forEach(function (e) {
-                o.fromKeys[e] = t[e];
+                i.fromKeys[e] = t[e];
               }),
               (this.duration = s),
-              (this.easing = a),
+              (this.easing = h),
               (this.currentTime = 0),
               (this.isRunning = !0);
           }),
-          (o.raf = function (t) {
+          (i.raf = function (t) {
             var e = this;
             if (this.isRunning) {
               this.currentTime = Math.min(
                 this.currentTime + 0.001 * t,
                 this.duration
               );
-              var i = this.easing(this.progress);
+              var o = this.easing(this.progress);
               this.keys.forEach(function (t) {
-                var o = e.fromKeys[t];
-                e.target[t] = o + (e.toKeys[t] - o) * i;
+                var i = e.fromKeys[t];
+                e.target[t] = i + (e.toKeys[t] - i) * o;
               }),
-                1 === i && (this.isRunning = !1);
+                1 === o && (this.isRunning = !1);
             }
           }),
           e(t, [
@@ -463,30 +463,34 @@
         );
       })(),
       u = /*#__PURE__*/ (function (t) {
-        var i, n;
+        var o, n;
         function r(e) {
-          var i,
-            o,
+          var o,
+            i,
             n,
             r,
-            h = void 0 === e ? {} : e,
-            u = h.duration,
+            a = void 0 === e ? {} : e,
+            u = a.duration,
             d = void 0 === u ? 1.2 : u,
-            p = h.easing,
+            p = a.easing,
             f =
               void 0 === p
                 ? function (t) {
                     return 1 === t ? 1 : 1 - Math.pow(2, -10 * t);
                   }
                 : p,
-            v = h.smooth,
+            v = a.smooth,
             y = void 0 === v || v,
-            w = h.direction,
-            g = void 0 === w ? "vertical" : w,
-            m = h.wrapper,
-            b = void 0 === m ? window : m,
-            T = h.content,
-            S = void 0 === T ? document.body : T;
+            w = a.smoothTouch,
+            g = void 0 !== w && w,
+            m = a.touchMultiplier,
+            b = void 0 === m ? 2 : m,
+            T = a.direction,
+            S = void 0 === T ? "vertical" : T,
+            M = a.wrapper,
+            _ = void 0 === M ? window : M,
+            O = a.content,
+            E = void 0 === O ? document.body : O;
           ((r = t.call(this) || this).onWindowResize = function () {
             (r.wrapperWidth = window.innerWidth),
               (r.wrapperHeight = window.innerHeight);
@@ -494,30 +498,34 @@
             (r.onWrapperResize = function (t) {
               var e = t[0];
               if (e) {
-                var i = e.contentRect;
-                (r.wrapperWidth = i.width), (r.wrapperHeight = i.height);
+                var o = e.contentRect;
+                (r.wrapperWidth = o.width), (r.wrapperHeight = o.height);
               }
             }),
             (r.onContentResize = function (t) {
               var e = t[0];
               if (e) {
-                var i = e.contentRect;
-                (r.contentWidth = i.width), (r.contentHeight = i.height);
+                var o = e.contentRect;
+                (r.contentWidth = o.width), (r.contentHeight = o.height);
               }
             }),
             (r.onVirtualScroll = function (t) {
               var e = t.deltaY,
-                i = t.originalEvent;
-              !i.ctrlKey &&
-                r.smooth &&
-                (r.stopped
-                  ? i.preventDefault()
-                  : (r.smooth && i.preventDefault(),
+                o = t.originalEvent;
+              o.ctrlKey ||
+                ((r.smooth = o.changedTouches
+                  ? r.smoothTouch
+                  : r.options.smooth),
+                r.stopped
+                  ? o.preventDefault()
+                  : r.smooth &&
+                    4 !== o.buttons &&
+                    (r.smooth && o.preventDefault(),
                     (r.targetScroll -= e),
-                    (r.targetScroll = a(0, r.targetScroll, r.limit)),
+                    (r.targetScroll = h(0, r.targetScroll, r.limit)),
                     r.scrollTo(r.targetScroll)));
             }),
-            (r.onScroll = function () {
+            (r.onScroll = function (t) {
               (r.isScrolling && r.smooth) ||
                 ((r.targetScroll =
                   r.scroll =
@@ -530,20 +538,25 @@
                 "Lenis: lerp option is deprecated, you must use duration and easing options instead. See documentation https://github.com/studio-freight/lenis"
               ),
             (window.lenisVersion = l),
-            (r.wrapperNode = b),
-            (r.contentNode = S),
+            (r.options = {
+              duration: d,
+              easing: f,
+              smooth: y,
+              smoothTouch: g,
+              touchMultiplier: b,
+              direction: S,
+              wrapper: _,
+              content: E,
+            }),
+            (r.wrapperNode = _),
+            (r.contentNode = E),
             (r.duration = d),
             (r.easing = f),
             (r.smooth = y),
-            (r.direction = g),
-            r.wrapperNode.addEventListener("scroll", r.onScroll);
-          var _ =
-            (null == (i = navigator) || null == (o = i.userAgentData)
-              ? void 0
-              : o.platform) ||
-            (null == (n = navigator) ? void 0 : n.platform) ||
-            "unknown";
-          return (
+            (r.smoothTouch = g),
+            (r.touchMultiplier = b),
+            (r.direction = S),
+            r.wrapperNode.addEventListener("scroll", r.onScroll),
             r.wrapperNode === window
               ? (r.wrapperNode.addEventListener("resize", r.onWindowResize),
                 r.onWindowResize())
@@ -559,13 +572,21 @@
               r.scroll =
               r.lastScroll =
                 r.wrapperNode[r.scrollProperty]),
-            (r.animate = new c()),
+            (r.animate = new c());
+          var W =
+            (null == (o = navigator) || null == (i = o.userAgentData)
+              ? void 0
+              : i.platform) ||
+            (null == (n = navigator) ? void 0 : n.platform) ||
+            "unknown";
+          return (
             (r.virtualScroll = new s({
               el: r.wrapperNode,
               firefoxMultiplier: 50,
-              mouseMultiplier: _.indexOf("Win") > -1 ? 1 : 0.4,
+              mouseMultiplier: W.includes("Win") ? 1 : 0.4,
               useKeyboard: !1,
-              useTouch: !1,
+              touchMultiplier: r.touchMultiplier,
+              useTouch: !0,
               passive: !1,
             })),
             r.virtualScroll.on(r.onVirtualScroll),
@@ -573,18 +594,18 @@
           );
         }
         (n = t),
-          ((i = r).prototype = Object.create(n.prototype)),
-          (i.prototype.constructor = i),
-          o(i, n);
-        var h = r.prototype;
+          ((o = r).prototype = Object.create(n.prototype)),
+          (o.prototype.constructor = o),
+          i(o, n);
+        var a = r.prototype;
         return (
-          (h.start = function () {
+          (a.start = function () {
             this.stopped = !1;
           }),
-          (h.stop = function () {
+          (a.stop = function () {
             this.stopped = !0;
           }),
-          (h.destroy = function () {
+          (a.destroy = function () {
             var t;
             this.wrapperNode === window &&
               this.wrapperNode.removeEventListener(
@@ -596,7 +617,7 @@
               null == (t = this.wrapperObserver) || t.disconnect(),
               this.contentObserver.disconnect();
           }),
-          (h.raf = function (t) {
+          (a.raf = function (t) {
             var e = t - (this.now || 0);
             (this.now = t),
               !this.stopped &&
@@ -609,12 +630,12 @@
                   (this.setScroll(this.scroll), this.notify()),
                 (this.isScrolling = this.scroll !== this.targetScroll));
           }),
-          (h.setScroll = function (t) {
+          (a.setScroll = function (t) {
             "horizontal" === this.direction
               ? this.wrapperNode.scrollTo(t, 0)
               : this.wrapperNode.scrollTo(0, t);
           }),
-          (h.notify = function () {
+          (a.notify = function () {
             this.emit("scroll", {
               scroll: this.scroll,
               limit: this.limit,
@@ -623,23 +644,45 @@
               progress: this.scroll / this.limit,
             });
           }),
-          (h.scrollTo = function (t, e) {
-            var i,
-              o = void 0 === e ? {} : e,
-              n = o.offset,
-              r = o.immediate,
-              s = void 0 !== r && r,
-              l = o.duration,
-              a = void 0 === l ? this.duration : l,
-              h = o.easing,
-              c = void 0 === h ? this.easing : h;
-            (i = "number" == typeof t ? t : 0),
-              (this.targetScroll = i += void 0 === n ? 0 : n),
-              !this.smooth || s
+          (a.scrollTo = function (t, e) {
+            var o,
+              i = void 0 === e ? {} : e,
+              n = i.offset,
+              r = void 0 === n ? 0 : n,
+              s = i.immediate,
+              l = void 0 !== s && s,
+              h = i.duration,
+              a = void 0 === h ? this.duration : h,
+              c = i.easing,
+              u = void 0 === c ? this.easing : c;
+            if ("number" == typeof t) o = t;
+            else if ("top" === t || "#top" === t) o = 0;
+            else if ("bottom" === t) o = this.limit;
+            else {
+              var d;
+              if ("string" == typeof t) d = document.querySelector(t);
+              else {
+                if (null == t || !t.nodeType) return;
+                d = t;
+              }
+              if (!t) return;
+              var p = 0;
+              if (this.wrapperNode !== window) {
+                var f = this.wrapperNode.getBoundingClientRect();
+                p = "horizontal" === this.direction ? f.left : f.top;
+              }
+              var v = d.getBoundingClientRect();
+              o =
+                ("horizontal" === this.direction ? v.left : v.top) +
+                this.scroll -
+                p;
+            }
+            (this.targetScroll = o += r),
+              !this.smooth || l
                 ? this.setScroll(this.targetScroll)
                 : this.animate.to(this, {
                     duration: a,
-                    easing: c,
+                    easing: u,
                     scroll: this.targetScroll,
                   });
           }),
@@ -689,8 +732,8 @@
       chrome.storage.local.set({ smooth: false });
       location.reload();
     } else {
-      function raf() {
-        lenis.raf();
+      function raf(time) {
+        lenis.raf(time);
         requestAnimationFrame(raf);
       }
 
