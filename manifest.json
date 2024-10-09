@@ -1,39 +1,43 @@
 {
-  "name": "Lenify",
-  "description": "Smooth Scroll for everyone, with a single click",
-  "version": "0.0.4",
   "manifest_version": 3,
-  "background": {
-    "service_worker": "background.js"
-  },
+  "name": "Lenify",
+  "version": "1.0",
+  "description": "Smooth scrolling with Lenis",
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "scripting"
   ],
   "host_permissions": [
     "<all_urls>"
   ],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["execute.js"],
-      "run_at": "document_idle"
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon16-gray.png",
+      "48": "icon48-gray.png",
+      "128": "icon128-gray.png"
     }
-  ],
-  "content_security_policy": {
-    "extension_pages": "script-src 'self' https://cdn.jsdelivr.net; object-src 'self'"
   },
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "action": {
-    "default_title": "Applies Lenis to any website",
-    "default_icon": {
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "lenis-wrapper.js",
+        "icon16.png",
+        "icon48.png",
+        "icon128.png",
+        "icon-gray16.png",
+        "icon-gray48.png",
+        "icon-gray128.png"
+      ],
+      "matches": ["<all_urls>"]
     }
-  }
+  ]
 }
