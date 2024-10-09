@@ -3,17 +3,37 @@
   "description": "Smooth Scroll for everyone, with a single click",
   "version": "0.0.4",
   "manifest_version": 3,
-  "action": {
-    "default_title": "Applies Lenis to any website"
-  },
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["scripting", "storage"],
-  "host_permissions": ["https://*/*", "http://*/*"],
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["execute.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' https://cdn.jsdelivr.net; object-src 'self'"
+  },
   "icons": {
-    "16": "/icons/icon16.png",
-    "48": "/icons/icon48.png",
-    "128": "/icons/icon128.png"
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+    "default_title": "Applies Lenis to any website",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
   }
 }
