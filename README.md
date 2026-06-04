@@ -3,10 +3,10 @@ Apply Lenis to any website through this chrome extension.
 
 ## Features
 
-- Apply Lenis smooth scroll to any website, via a Chrome extension
-- Toggle on or off per site from the toolbar icon
-- Injects Lenis from an external source, with nothing bundled into the page
-- Lightweight content-script toggle, with no full page reload
+- **Any site** — apply Lenis smooth scroll to any website through the extension
+- **Per-site toggle** — switch it on or off from the toolbar icon
+- **External injection** — loads Lenis from a CDN, with nothing bundled into the page
+- **No reload** — a lightweight content-script toggle that never refreshes the page
 
 ### ToDo:
 
